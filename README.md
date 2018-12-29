@@ -2,7 +2,7 @@
 
 Simple Survey App built using Angular 7 and Bootstrap 4
 
-This project is a port of the famous Free Admin Bootstrap Theme [SB Admin v7.0](http://startbootstrap.com/template-overviews/sb-admin-2/) to Angular7 Theme.
+This project uses Free Admin Bootstrap Theme [SB Admin v7.0](http://startbootstrap.com/template-overviews/sb-admin-2/) to Angular7 Theme.
 
 ### How to start
 
