@@ -3,7 +3,7 @@
         <h2 class="page-header">
             {{heading}}
         </h2>
-        <ol class="breadcrumb">
+        <ol *ngIf="breadcrumb" class="breadcrumb">
             <li class="breadcrumb-item">
                 <i class="fa fa-dashboard"></i> <a href="Javascript:void(0)" [routerLink]="['/dashboard']">Dashboard</a>
             </li>
