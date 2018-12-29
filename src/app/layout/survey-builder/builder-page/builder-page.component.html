@@ -1,0 +1,196 @@
+<app-page-header [heading]="'Survey Builder'" [icon]="'fa-wrench'"></app-page-header>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <!-- A vertical navbar -->
+      <nav class="navbar bg-light">
+        <span class="navbar-brand">Tools</span>
+        <span class="navbar-text small">
+          Build an awesome survey using the following tools
+        </span>
+        <!-- Links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <button type="button" class="btn  btn-sm btn-outline-dark" >
+              <i class="fa fa-keyboard-o" aria-hidden="true"></i>
+              &nbsp;Single Input
+            </button>
+          </li>
+          <li class="nav-item mt-1">
+            <button type="button" class="btn  btn-sm btn-outline-dark">
+              <i class="fa fa-check-square" aria-hidden="true"></i>
+              &nbsp;Checkbox
+            </button>
+          </li>
+          <li class="nav-item mt-1">
+            <button type="button" class="btn  btn-sm btn-outline-dark">
+              <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+              &nbsp;Multiple Choice
+            </button>
+          </li>
+          <li class="nav-item mt-1">
+            <button type="button" class="btn  btn-sm btn-outline-dark">
+              <i class="fa fa-caret-square-o-down" aria-hidden="true"></i>
+              &nbsp;Dropdown
+            </button>
+          </li>
+          <li class="nav-item mt-1">
+            <button type="button" class="btn  btn-sm btn-outline-dark">
+              <i class="fa fa-commenting" aria-hidden="true"></i>
+              &nbsp;Comment
+            </button>
+          </li>
+          <li class="nav-item mt-1">
+            <button type="button" class="btn  btn-sm btn-outline-dark">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              &nbsp;Rating
+            </button>
+          </li>
+        </ul>
+
+      </nav>
+    </div>
+    <div class="col-9">
+      <!-- Single Input -->
+      <div class="card border-dark mt-1">
+        <div class="card-header">1. What's your name?</div>
+        <div class="card-body">
+          <p class="card-text">
+            <input class="form-control form-control" type="text" placeholder="Answer">
+          </p>
+        </div>
+        <div class="card-header bg-transparent">
+          <button type="button"  class="btn btn-dark mr-1" (click)="openSurveyInputEditModal(content)"><i class="fa fa-pencil"></i>&nbsp;Edit</button>
+          <button type="button" class="btn btn-dark mr-1"><i class="fa fa-trash-o"></i>&nbsp;Delete</button>
+          <button type="button" class="btn btn-dark mr-1"><i class="fa fa-files-o "></i>&nbsp;Duplicate</button>
+        </div>
+      </div>
+
+      <!-- Checkbox -->
+      <div class="card border-dark mt-3">
+        <div class="card-header">2. What kind of pet are you having?</div>
+        <div class="card-body">
+          <div class="card-text">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios1" value="cat" checked>
+              <label class="form-check-label" for="exampleRadios1">
+                Cat
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios2" value="dog">
+              <label class="form-check-label" for="exampleRadios2">
+                Dog
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="card-header bg-transparent">
+          <button type="button"  class="btn btn-dark mr-1" (click)="openSurveyInputEditModal(content)"><i class="fa fa-pencil"></i>&nbsp;Edit</button>
+          <button type="button" class="btn btn-dark mr-1"><i class="fa fa-trash-o"></i>&nbsp;Delete</button>
+          <button type="button" class="btn btn-dark mr-1"><i class="fa fa-files-o "></i>&nbsp;Duplicate</button>
+        </div>
+      </div>
+
+      <!-- Multiple Choice -->
+      <div class="card border-dark mt-3">
+        <div class="card-header">3. What's your gender?</div>
+        <div class="card-body">
+          <div class="card-text">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="M" checked>
+              <label class="form-check-label" for="exampleRadios1">
+                Male
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="F">
+              <label class="form-check-label" for="exampleRadios2">
+                Female
+              </label>
+            </div>
+            <div class="form-check disabled">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="O">
+              <label class="form-check-label" for="exampleRadios3">
+                Other
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="card-header bg-transparent">
+          <button type="button"  class="btn btn-dark mr-1" (click)="openSurveyInputEditModal(content)"><i class="fa fa-pencil"></i>&nbsp;Edit</button>
+          <button type="button" class="btn btn-dark mr-1"><i class="fa fa-trash-o"></i>&nbsp;Delete</button>
+          <button type="button" class="btn btn-dark mr-1"><i class="fa fa-files-o "></i>&nbsp;Duplicate</button>
+        </div>
+      </div>
+
+      <!-- Dropdown -->
+      <div class="card border-dark mt-3">
+        <div class="card-header">4. Which country are you from?</div>
+        <div class="card-body">
+          <div class="card-text">
+            <select id="inputState" class="form-control">
+              <option selected>Choose...</option>
+              <option>India</option>
+              <option>US</option>
+              <option>Canada</option>
+            </select>
+          </div>
+        </div>
+        <div class="card-header bg-transparent">
+          <button type="button"  class="btn btn-dark mr-1" (click)="openSurveyInputEditModal(content)"><i class="fa fa-pencil"></i>&nbsp;Edit</button>
+          <button type="button" class="btn btn-dark mr-1"><i class="fa fa-trash-o"></i>&nbsp;Delete</button>
+          <button type="button" class="btn btn-dark mr-1"><i class="fa fa-files-o "></i>&nbsp;Duplicate</button>
+        </div>
+      </div>
+
+      <!-- Comment -->
+      <div class="card border-dark mt-3">
+        <div class="card-header">5. What's your opinion about global warming?</div>
+        <div class="card-body">
+          <div class="card-text">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="card-header bg-transparent">
+          <button type="button"  class="btn btn-dark mr-1" (click)="openSurveyInputEditModal(content)"><i class="fa fa-pencil"></i>&nbsp;Edit</button>
+          <button type="button" class="btn btn-dark mr-1"><i class="fa fa-trash-o"></i>&nbsp;Delete</button>
+          <button type="button" class="btn btn-dark mr-1"><i class="fa fa-files-o "></i>&nbsp;Duplicate</button>
+        </div>
+      </div>
+
+      <!-- Rating -->
+      <div class="card border-dark mt-3">
+        <div class="card-header">6. How would you rate your self-esteem?</div>
+        <div class="card-body">
+          <div class="card-text">
+            <ngb-rating [rate]="3"></ngb-rating>
+          </div>
+        </div>
+        <div class="card-header bg-transparent">
+          <button type="button"  class="btn btn-dark mr-1" (click)="openSurveyInputEditModal(content)"><i class="fa fa-pencil"></i>&nbsp;Edit</button>
+          <button type="button" class="btn btn-dark mr-1"><i class="fa fa-trash-o"></i>&nbsp;Delete</button>
+          <button type="button" class="btn btn-dark mr-1"><i class="fa fa-files-o "></i>&nbsp;Duplicate</button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<!-- Edit Input Modal -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>One fine body&hellip;</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
