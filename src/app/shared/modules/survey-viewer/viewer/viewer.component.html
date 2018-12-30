@@ -1,34 +1,23 @@
 <!-- Single Input -->
-<app-single-input></app-single-input>
+<app-single-input
+  (edit)="inputItemEditClick($event)"></app-single-input>
 
 <!-- Checkbox -->
-<app-checkbox></app-checkbox>
+<app-checkbox
+  (edit)="inputItemEditClick($event)"></app-checkbox>
 
 <!-- Multiple Choice -->
-<app-multiple-choice></app-multiple-choice>
+<app-multiple-choice
+  (edit)="inputItemEditClick($event)"></app-multiple-choice>
 
 <!-- Dropdown -->
-<app-dropdown></app-dropdown>
+<app-dropdown
+  (edit)="inputItemEditClick($event)"></app-dropdown>
 
 <!-- Comment -->
-<app-comment></app-comment>
+<app-comment
+  (edit)="inputItemEditClick($event)"></app-comment>
 
 <!-- Rating -->
-<app-rating></app-rating>
-
-
-<!-- Edit Input Modal -->
-<ng-template #content let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title">Modal title</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <p>One fine body&hellip;</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-  </div>
-</ng-template>
+<app-rating
+  (edit)="inputItemEditClick($event)"></app-rating>

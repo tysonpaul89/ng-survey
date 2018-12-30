@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 import {
-  NgbRatingConfig
-} from '@ng-bootstrap/ng-bootstrap';
+  SurveyEditModalComponent
+} from '../survey-edit-modal/survey-edit-modal.component';
 
 @Component({
   selector: 'app-viewer',
@@ -12,25 +13,21 @@ import {
 export class ViewerComponent implements OnInit {
   @Input() viewerData: any;
 
-  constructor(
-    private modalService: NgbModal,
-    private ratingConfig: NgbRatingConfig
-  ) {
-    // Rating max
-    this.ratingConfig.max = 5;
+  constructor(private modalService: NgbModal) {
   }
 
   ngOnInit() {
     console.log(this.viewerData);
   }
 
-
   /**
-   * To open the survey input edit modal
-   * @param content
+   * Input item edit button click event
+   * @param edit any
    */
-  openSurveyInputEditModal(content) {
-    this.modalService.open(content, { size: 'sm' });
+  inputItemEditClick(edit) {
+    const modalRef = this.modalService.open(SurveyEditModalComponent);
+    modalRef.componentInstance.name = 'World';
+    console.log(edit);
   }
 
 }

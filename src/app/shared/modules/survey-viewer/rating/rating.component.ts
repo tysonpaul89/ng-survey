@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import {
+  NgbRatingConfig
+} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-rating',
@@ -6,10 +9,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rating.component.scss']
 })
 export class RatingComponent implements OnInit {
+  @Output() edit = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(private ratingConfig: NgbRatingConfig) {
+    // Rating max
+    this.ratingConfig.max = 5;
+  }
 
   ngOnInit() {
+  }
+
+  /**
+   * Edit button click event lister function
+   */
+  editButtonClickEvent() {
+    this.edit.emit(true);
   }
 
 }

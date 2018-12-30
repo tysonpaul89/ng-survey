@@ -8,12 +8,25 @@ import { MultipleChoiceComponent } from './multiple-choice/multiple-choice.compo
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { CommentComponent } from './comment/comment.component';
 import { RatingComponent } from './rating/rating.component';
+import { SurveyEditModalComponent } from './survey-edit-modal/survey-edit-modal.component';
 
 @NgModule({
-  declarations: [ViewerComponent, SingleInputComponent, CheckboxComponent, MultipleChoiceComponent, DropdownComponent, CommentComponent, RatingComponent],
+  declarations: [
+    ViewerComponent,
+    SingleInputComponent,
+    CheckboxComponent,
+    MultipleChoiceComponent,
+    DropdownComponent,
+    CommentComponent,
+    RatingComponent,
+    SurveyEditModalComponent
+  ],
   imports: [
     CommonModule,
     NgbModule,
+  ],
+  entryComponents: [
+    SurveyEditModalComponent
   ],
   exports: [
     ViewerComponent

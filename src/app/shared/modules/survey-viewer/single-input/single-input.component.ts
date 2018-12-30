@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-single-input',
@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./single-input.component.scss']
 })
 export class SingleInputComponent implements OnInit {
+  @Output() edit = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  /**
+   * Edit button click event lister function
+   */
+  editButtonClickEvent() {
+    this.edit.emit(true);
   }
 
 }
