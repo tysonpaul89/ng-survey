@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { NgbRatingConfig, NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 
 import { ITab } from '../../../shared/interface/ITab';
 
@@ -13,13 +11,7 @@ export class BuilderPageComponent implements OnInit {
   private idCounter = 1;
   public tabs: ITab[] = [];
 
-  constructor(
-    private modalService: NgbModal,
-    private ratingConfig: NgbRatingConfig
-  ) {
-    // Rating max
-    this.ratingConfig.max = 5;
-  }
+  constructor() {}
 
   ngOnInit() {
     this.tabs.push({
@@ -27,14 +19,6 @@ export class BuilderPageComponent implements OnInit {
       title: 'Page ' + this.idCounter,
       content: null
     });
-  }
-
-  /**
-   * To open the survey input edit modal
-   * @param content
-   */
-  openSurveyInputEditModal(content) {
-    this.modalService.open(content, { size: 'sm' });
   }
 
   /**
