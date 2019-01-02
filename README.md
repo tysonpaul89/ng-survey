@@ -11,7 +11,7 @@ This project uses Free Admin Bootstrap Theme [SB Admin v7.0](http://startbootstr
 In order to start the project use:
 
 ```bash
-$ git https://github.com/tysonpaul89/ng-survey
+$ git clone https://github.com/tysonpaul89/ng-survey
 $ cd ng-survey
 # install the project's dependencies
 $ npm install
