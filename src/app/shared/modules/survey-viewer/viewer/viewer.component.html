@@ -1,23 +1,33 @@
-<!-- Single Input -->
-<app-single-input
-  (edit)="inputItemEditClick($event)"></app-single-input>
+<div *ngFor="let question of viewerData">
+  <div [ngSwitch]="question.type">
+    <!-- Single Input -->
+    <app-single-input
+      *ngSwitchCase="'singleInput'"
+      (edit)="inputItemEditClick($event)"></app-single-input>
 
-<!-- Checkbox -->
-<app-checkbox
-  (edit)="inputItemEditClick($event)"></app-checkbox>
+    <!-- Checkbox -->
+    <app-checkbox
+      *ngSwitchCase="'checkbox'"
+      (edit)="inputItemEditClick($event)"></app-checkbox>
 
-<!-- Multiple Choice -->
-<app-multiple-choice
-  (edit)="inputItemEditClick($event)"></app-multiple-choice>
+    <!-- Multiple Choice -->
+    <app-multiple-choice
+      *ngSwitchCase="'multipleChoice'"
+      (edit)="inputItemEditClick($event)"></app-multiple-choice>
 
-<!-- Dropdown -->
-<app-dropdown
-  (edit)="inputItemEditClick($event)"></app-dropdown>
+    <!-- Dropdown -->
+    <app-dropdown
+      *ngSwitchCase="'dropdown'"
+      (edit)="inputItemEditClick($event)"></app-dropdown>
 
-<!-- Comment -->
-<app-comment
-  (edit)="inputItemEditClick($event)"></app-comment>
+    <!-- Comment -->
+    <app-comment
+      *ngSwitchCase="'comment'"
+      (edit)="inputItemEditClick($event)"></app-comment>
 
-<!-- Rating -->
-<app-rating
-  (edit)="inputItemEditClick($event)"></app-rating>
+    <!-- Rating -->
+    <app-rating
+      *ngSwitchCase="'rating'"
+      (edit)="inputItemEditClick($event)"></app-rating>
+  </div>
+</div>

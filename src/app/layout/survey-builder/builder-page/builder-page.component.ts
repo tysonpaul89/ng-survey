@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ITab } from '../../../shared/interface/ITab';
 import { IPage, questions } from '../../../shared/interface/ISurvey';
 
 @Component({
@@ -10,17 +9,11 @@ import { IPage, questions } from '../../../shared/interface/ISurvey';
 })
 export class BuilderPageComponent implements OnInit {
   private idCounter = 1;
-  public tabs: ITab[] = [];
   public surveyData: IPage[] = questions;
 
   constructor() {}
 
   ngOnInit() {
-    this.tabs.push({
-      id: 'page-' + this.getTabId(),
-      title: 'Page ' + this.idCounter,
-      content: null
-    });
   }
 
   /**
