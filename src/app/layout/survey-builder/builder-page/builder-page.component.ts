@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { NgbRatingConfig, NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 
 import { ITab } from '../../../shared/interface/ITab';
+import { IPage, questions } from '../../../shared/interface/ISurvey';
 
 @Component({
   selector: 'app-builder-page',
@@ -12,14 +11,9 @@ import { ITab } from '../../../shared/interface/ITab';
 export class BuilderPageComponent implements OnInit {
   private idCounter = 1;
   public tabs: ITab[] = [];
+  public surveyData: IPage[] = questions;
 
-  constructor(
-    private modalService: NgbModal,
-    private ratingConfig: NgbRatingConfig
-  ) {
-    // Rating max
-    this.ratingConfig.max = 5;
-  }
+  constructor() {}
 
   ngOnInit() {
     this.tabs.push({
@@ -30,39 +24,43 @@ export class BuilderPageComponent implements OnInit {
   }
 
   /**
-   * To open the survey input edit modal
-   * @param content
-   */
-  openSurveyInputEditModal(content) {
-    this.modalService.open(content, { size: 'sm' });
-  }
-
-  /**
    * To add a new tab
    */
   addNewTab() {
-    ++this.idCounter;
+    // Gets the current order count
+    this.idCounter = this.surveyData[this.surveyData.length - 1]['order'];
+    this.idCounter++;
 
-    this.tabs = this.tabs.concat({
+    this.surveyData = this.surveyData.concat({
       id: 'page-' + this.getTabId(),
-      title: 'Page ' + this.idCounter,
-      content: null
+      title: 'Page' + this.idCounter,
+      order: this.idCounter,
+      elements: []
     });
   }
 
   /**
    * To delete a tab
-   * @param tabId Tab id
+   * @param pageId Page id
    */
-  deleteTab(tabId, $event) {
+  deleteTab(pageId, $event) {
     $event.preventDefault();
-    const result: ITab[] = this.tabs.filter(
-      (tab: ITab): boolean => tab.id !== tabId
+
+    // Filters the deleted page object from the survey data
+    const filteredData: IPage[] = this.surveyData.filter(
+      (page: IPage): boolean => page.id !== pageId
     );
-    result.map(
-      (tab: ITab, i: number) => tab.title = 'Page ' + (i + 1)
+
+    // Re-indexes the page order and title label data
+    filteredData.map(
+      (page: IPage, index: number) => {
+        page.title = 'Page ' + (index + 1);
+        page.order = index + 1;
+      }
     );
-    this.tabs = result;
+
+    // applies filtering to the survey data
+    this.surveyData = filteredData;
   }
 
   /**
