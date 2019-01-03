@@ -59,6 +59,7 @@
         New&nbsp;<i class="fa fa-plus-circle"></i>
       </button>
       <div class="mt-1">
+
         <ngb-tabset #t="ngbTabset">
           <ngb-tab *ngFor="let page of surveyData" id="{{page.id}}">
             <ng-template ngbTabTitle>
@@ -76,23 +77,6 @@
             </ng-template>
           </ngb-tab>
         </ngb-tabset>
-
-        <!-- <ngb-tab *ngFor="let tab of tabs" id="{{tab.id}}">
-            <ng-template ngbTabTitle>
-              {{tab.title}}&nbsp;
-              <span *ngIf="tab.title !== 'Page 1'">
-                <a class="disable-link" href="#" (click)="deleteTab(tab.id, $event)">
-                  <i class="fa fa-times"></i>
-                </a>
-              </span>
-            </ng-template>
-            <ng-template ngbTabContent>
-              <app-viewer
-                *ngIf="tab.title === 'Page 1'"
-                [viewerData]="tab.content"></app-viewer>
-            </ng-template>
-          </ngb-tab>
-        </ngb-tabset> -->
 
       </div>
     </div><!-- ./col-9 -->

@@ -9,6 +9,7 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { CommentComponent } from './comment/comment.component';
 import { RatingComponent } from './rating/rating.component';
 import { SurveyEditModalComponent } from './survey-edit-modal/survey-edit-modal.component';
+import { SurveyDeleteModalComponent } from './survey-delete-modal/survey-delete-modal.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +20,16 @@ import { SurveyEditModalComponent } from './survey-edit-modal/survey-edit-modal.
     DropdownComponent,
     CommentComponent,
     RatingComponent,
-    SurveyEditModalComponent
+    SurveyEditModalComponent,
+    SurveyDeleteModalComponent
   ],
   imports: [
     CommonModule,
     NgbModule,
   ],
   entryComponents: [
-    SurveyEditModalComponent
+    SurveyEditModalComponent,
+    SurveyDeleteModalComponent
   ],
   exports: [
     ViewerComponent

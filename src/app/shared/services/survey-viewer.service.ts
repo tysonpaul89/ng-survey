@@ -7,9 +7,24 @@ export class SurveyViewerService {
   private editSurveySource = new Subject<IElement>();
   public editSurvey$ = this.editSurveySource.asObservable();
 
+  private deleteSurveySource = new Subject<IElement>();
+  public deleteSurvey$ = this.deleteSurveySource.asObservable();
+
   constructor() { }
 
-  surveyEditEditClick(element: IElement) {
+  /**
+   * Method to open survey editor modal
+   * @param element
+   */
+  surveyEditClick(element: IElement) {
     this.editSurveySource.next(element)
+  }
+
+  /**
+   * Method to open survey editor modal
+   * @param element
+   */
+  surveyDeleteClick(element: IElement) {
+    this.deleteSurveySource.next(element)
   }
 }

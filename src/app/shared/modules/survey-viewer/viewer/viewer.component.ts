@@ -6,6 +6,9 @@ import { SurveyViewerService } from '../../../services/survey-viewer.service';
 import {
   SurveyEditModalComponent
 } from '../survey-edit-modal/survey-edit-modal.component';
+import {
+  SurveyDeleteModalComponent
+} from '../survey-delete-modal/survey-delete-modal.component';
 import { IElement } from '../../../interface/ISurvey';
 
 
@@ -17,7 +20,8 @@ import { IElement } from '../../../interface/ISurvey';
 })
 export class ViewerComponent implements OnInit {
   @Input() viewerData: any;
-  private editSurveySubscription: Subscription
+  private editSurveySubscription: Subscription;
+  private deleteSurveySubscription: Subscription;
 
   constructor(
     private modalService: NgbModal,
@@ -26,8 +30,17 @@ export class ViewerComponent implements OnInit {
     // Survey edit button click event
     this.editSurveySubscription = this.surveyViewerService.editSurvey$.subscribe(
       (element: IElement) => {
-        console.log('surveyViewerService', element)
+        console.log('Edit Survey', element)
         const modalRef = this.modalService.open(SurveyEditModalComponent);
+        modalRef.componentInstance.name = element.type;
+      }
+    );
+
+    // Survey delete button click event
+    this.deleteSurveySubscription = this.surveyViewerService.deleteSurvey$.subscribe(
+      (element: IElement) => {
+        console.log('Delete Survey', element)
+        const modalRef = this.modalService.open(SurveyDeleteModalComponent);
         modalRef.componentInstance.name = element.type;
       }
     );

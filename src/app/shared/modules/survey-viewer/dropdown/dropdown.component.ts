@@ -26,6 +26,13 @@ export class DropdownComponent implements OnInit {
    * Edit button click event lister function
    */
   editButtonClickEvent() {
-    this.surveyViewerService.surveyEditEditClick(this.element);
+    this.surveyViewerService.surveyEditClick(this.element);
+  }
+
+  /**
+   * Delete button click event lister function
+   */
+  deleteButtonClickEvent() {
+    this.surveyViewerService.surveyDeleteClick(this.element);
   }
 }
