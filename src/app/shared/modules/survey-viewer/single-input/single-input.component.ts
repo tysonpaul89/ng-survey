@@ -1,4 +1,12 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  EventEmitter,
+  Output,
+  Input
+} from '@angular/core';
+
+import { IElement } from '../../../interface/ISurvey';
 
 @Component({
   selector: 'app-single-input',
@@ -7,8 +15,10 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class SingleInputComponent implements OnInit {
   @Output() edit = new EventEmitter<any>();
+  @Input() element: IElement;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

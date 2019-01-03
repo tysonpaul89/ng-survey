@@ -3,31 +3,37 @@
     <!-- Single Input -->
     <app-single-input
       *ngSwitchCase="'singleInput'"
+      [element]="question"
       (edit)="inputItemEditClick($event)"></app-single-input>
 
     <!-- Checkbox -->
     <app-checkbox
       *ngSwitchCase="'checkbox'"
+      [element]="question"
       (edit)="inputItemEditClick($event)"></app-checkbox>
 
     <!-- Multiple Choice -->
     <app-multiple-choice
       *ngSwitchCase="'multipleChoice'"
+      [element]="question"
       (edit)="inputItemEditClick($event)"></app-multiple-choice>
 
     <!-- Dropdown -->
     <app-dropdown
       *ngSwitchCase="'dropdown'"
+      [element]="question"
       (edit)="inputItemEditClick($event)"></app-dropdown>
 
     <!-- Comment -->
     <app-comment
       *ngSwitchCase="'comment'"
+      [element]="question"
       (edit)="inputItemEditClick($event)"></app-comment>
 
     <!-- Rating -->
     <app-rating
       *ngSwitchCase="'rating'"
+      [element]="question"
       (edit)="inputItemEditClick($event)"></app-rating>
   </div>
 </div>

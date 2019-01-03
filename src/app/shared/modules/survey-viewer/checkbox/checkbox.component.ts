@@ -1,4 +1,12 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  EventEmitter,
+  Output,
+  Input
+} from '@angular/core';
+
+import { IElement } from '../../../interface/ISurvey';
 
 @Component({
   selector: 'app-checkbox',
@@ -7,6 +15,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class CheckboxComponent implements OnInit {
   @Output() edit = new EventEmitter<any>();
+  @Input() element: IElement;
 
   constructor() { }
 

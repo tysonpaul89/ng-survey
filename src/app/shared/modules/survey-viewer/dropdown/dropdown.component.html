@@ -1,12 +1,9 @@
 <div class="card border-dark mt-3">
-  <div class="card-header">4. Which country are you from?</div>
+  <div class="card-header">{{element.question}}</div>
   <div class="card-body">
     <div class="card-text">
       <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>India</option>
-        <option>US</option>
-        <option>Canada</option>
+        <option *ngFor="let option of element.options" value="{{option.id}}" [attr.selected]="option.checked ? 'selected': null">{{option.value}}</option>
       </select>
     </div>
   </div>

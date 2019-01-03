@@ -3,10 +3,12 @@
 # compiled output
 /tmp
 /out-tsc
+/dist
 
 # dependencies
 /node_modules
 package-lock.json
+.firebase/
 
 # IDEs and editors
 /.idea

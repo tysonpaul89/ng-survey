@@ -1,8 +1,8 @@
 <div class="card border-dark mt-3">
-  <div class="card-header">6. How would you rate your self-esteem?</div>
+  <div class="card-header">{{element.question}}</div>
   <div class="card-body">
     <div class="card-text">
-      <ngb-rating [rate]="3"></ngb-rating>
+      <ngb-rating [rate]="element.options[0].value" [max]="this.element.options[0].rating_max"></ngb-rating>
     </div>
   </div>
   <div class="card-header bg-transparent">

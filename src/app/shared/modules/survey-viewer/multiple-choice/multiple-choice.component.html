@@ -1,23 +1,11 @@
 <div class="card border-dark mt-3">
-  <div class="card-header">3. What's your gender?</div>
+  <div class="card-header">{{element.question}}</div>
   <div class="card-body">
     <div class="card-text">
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="M" checked>
-        <label class="form-check-label" for="exampleRadios1">
-          Male
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="F">
-        <label class="form-check-label" for="exampleRadios2">
-          Female
-        </label>
-      </div>
-      <div class="form-check disabled">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="O">
-        <label class="form-check-label" for="exampleRadios3">
-          Other
+      <div class="form-check" *ngFor="let option of element.options">
+        <input class="form-check-input" type="radio" name="{{option.value}}" id="multi-choice-{{option.id}}" value="{{option.value}}" [attr.checked]="option.checked ? 'checked' : null">
+        <label class="form-check-label" for="multi-choice-{{option.id}}">
+          {{option.value}}
         </label>
       </div>
     </div>

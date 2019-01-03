@@ -17,8 +17,10 @@ export interface IElement {
 export interface IOption {
   id: string;
   order: number;
-  name: string;
-  value: string;
+  type: string;
+  checked?: boolean;
+  value: string | number;
+  rating_max?: number;
 }
 
 
@@ -43,14 +45,16 @@ export const questions = [
           {
             id: 'opt-1546109512655',
             order: 1,
-            name: 'Cat',
-            value: 'cat'
+            type: 'checkbox',
+            checked: false,
+            value: 'Cat'
           },
           {
             id: 'opt-1546109515886',
             order: 2,
-            name: 'Dog',
-            value: 'dog'
+            type: 'checkbox',
+            checked: true,
+            value: 'Dog'
           },
         ]
       },
@@ -62,21 +66,21 @@ export const questions = [
         options: [
           {
             id: 'opt-1546110436048',
+            type: 'radio',
             order: 1,
-            name: 'Male',
-            value: 'M'
+            value: 'Male'
           },
           {
             id: 'opt-1546110437050',
+            type: 'radio',
             order: 2,
-            name: 'Female',
-            value: 'F'
+            value: 'Female',
           },
           {
             id: 'opt-1546110437050',
+            type: 'radio',
             order: 3,
-            name: 'Others',
-            value: 'O'
+            value: 'OthersO'
           },
         ]
       },
@@ -87,22 +91,32 @@ export const questions = [
         question: 'Which country are you from?',
         options: [
           {
-            id: 'opt-1546110842898',
+            id: 'opt-1546110842900',
+            type: 'dropdown',
+            checked: false,
             order: 1,
-            name: 'India',
-            value: 'IND'
+            value: 'Choose..'
+          },
+          {
+            id: 'opt-1546110842898',
+            type: 'dropdown',
+            checked: false,
+            order: 1,
+            value: 'India'
           },
           {
             id: 'opt-1546111105001',
+            type: 'dropdown',
+            checked: false,
             order: 2,
-            name: 'US',
             value: 'US'
           },
           {
             id: 'opt-1546111176435',
+            type: 'dropdown',
+            checked: false,
             order: 3,
-            name: 'Canada',
-            value: 'CAD'
+            value: 'Canada'
           }
         ]
       },
@@ -117,9 +131,13 @@ export const questions = [
         order: 6,
         type: 'rating',
         question: 'How would you rate your self-esteem?',
-        meta: {
-          max: 5
-        }
+        options: [{
+          id: 'opt-1546111176435',
+          type: 'rating',
+          order: 1,
+          value: 3,
+          rating_max: 5
+        }]
       },
     ]
   }

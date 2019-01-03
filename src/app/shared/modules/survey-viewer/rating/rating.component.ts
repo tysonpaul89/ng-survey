@@ -1,7 +1,12 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import {
-  NgbRatingConfig
-} from '@ng-bootstrap/ng-bootstrap';
+  Component,
+  OnInit,
+  EventEmitter,
+  Output,
+  Input
+} from '@angular/core';
+
+import { IElement } from '../../../interface/ISurvey';
 
 @Component({
   selector: 'app-rating',
@@ -10,10 +15,9 @@ import {
 })
 export class RatingComponent implements OnInit {
   @Output() edit = new EventEmitter<any>();
+  @Input() element: IElement;
 
-  constructor(private ratingConfig: NgbRatingConfig) {
-    // Rating max
-    this.ratingConfig.max = 5;
+  constructor() {
   }
 
   ngOnInit() {
