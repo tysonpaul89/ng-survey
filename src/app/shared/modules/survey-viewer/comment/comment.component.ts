@@ -1,12 +1,11 @@
 import {
   Component,
   OnInit,
-  EventEmitter,
-  Output,
   Input
 } from '@angular/core';
 
 import { IElement } from '../../../interface/ISurvey';
+import { SurveyViewerService } from '../../../services/survey-viewer.service';
 
 @Component({
   selector: 'app-comment',
@@ -14,10 +13,11 @@ import { IElement } from '../../../interface/ISurvey';
   styleUrls: ['./comment.component.scss']
 })
 export class CommentComponent implements OnInit {
-  @Output() edit = new EventEmitter<any>();
   @Input() element: IElement;
 
-  constructor() { }
+  constructor(
+    private surveyViewerService: SurveyViewerService
+  ) { }
 
   ngOnInit() {
   }
@@ -26,7 +26,7 @@ export class CommentComponent implements OnInit {
    * Edit button click event lister function
    */
   editButtonClickEvent() {
-    this.edit.emit(true);
+    this.surveyViewerService.surveyEditEditClick(this.element);
   }
 
 }

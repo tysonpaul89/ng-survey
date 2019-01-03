@@ -80,7 +80,7 @@ export const questions = [
             id: 'opt-1546110437050',
             type: 'radio',
             order: 3,
-            value: 'OthersO'
+            value: 'Others'
           },
         ]
       },

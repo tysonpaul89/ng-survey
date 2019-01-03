@@ -1,12 +1,11 @@
 import {
   Component,
   OnInit,
-  EventEmitter,
-  Output,
   Input
 } from '@angular/core';
 
 import { IElement } from '../../../interface/ISurvey';
+import { SurveyViewerService } from '../../../services/survey-viewer.service';
 
 @Component({
   selector: 'app-single-input',
@@ -14,10 +13,11 @@ import { IElement } from '../../../interface/ISurvey';
   styleUrls: ['./single-input.component.scss']
 })
 export class SingleInputComponent implements OnInit {
-  @Output() edit = new EventEmitter<any>();
   @Input() element: IElement;
 
-  constructor() {
+  constructor(
+    private surveyViewerService: SurveyViewerService
+  ) {
   }
 
   ngOnInit() {
@@ -27,7 +27,7 @@ export class SingleInputComponent implements OnInit {
    * Edit button click event lister function
    */
   editButtonClickEvent() {
-    this.edit.emit(true);
+    this.surveyViewerService.surveyEditEditClick(this.element);
   }
 
 }

@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 
 import { IElement } from '../../../interface/ISurvey';
+import { SurveyViewerService } from '../../../services/survey-viewer.service';
 
 @Component({
   selector: 'app-multiple-choice',
@@ -17,7 +18,9 @@ export class MultipleChoiceComponent implements OnInit {
   @Output() edit = new EventEmitter<any>();
   @Input() element: IElement;
 
-  constructor() { }
+  constructor(
+    private surveyViewerService: SurveyViewerService
+  ) { }
 
   ngOnInit() {
   }
@@ -26,7 +29,7 @@ export class MultipleChoiceComponent implements OnInit {
    * Edit button click event lister function
    */
   editButtonClickEvent() {
-    this.edit.emit(true);
+    this.surveyViewerService.surveyEditEditClick(this.element);
   }
 
 }
